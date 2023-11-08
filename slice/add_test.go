@@ -30,29 +30,29 @@ func TestAdd(t *testing.T) {
 	}
 	for _, tc := range testCase {
 		t.Run(tc.name, func(t *testing.T) {
-			result, _ := Add[int](tc.slice, tc.val, tc.index)
+			result, _ := Insert[int](tc.slice, tc.val, tc.index)
 			assert.Equal(t, result, tc.wantSlice)
 		})
 	}
 }
 
-func BenchmarkAddLow(b *testing.B) {
+func BenchmarkInsertLow(b *testing.B) {
 	s := make([]int, 0)
 	for i := 0; i < 10; i++ {
 		s = append(s, i)
 	}
 	for i := 0; i < b.N; i++ {
-		AddLow[int](s, 100, 5)
+		InsertLow[int](s, 100, 5)
 	}
 }
 
-func BenchmarkAdd(b *testing.B) {
+func BenchmarkInsert(b *testing.B) {
 	s := make([]int, 0)
 	for i := 0; i < 10; i++ {
 		s = append(s, i)
 	}
 	for i := 0; i < b.N; i++ {
-		Add[int](s, 100, 5)
+		Insert[int](s, 100, 5)
 	}
 }
 

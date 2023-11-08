@@ -3,7 +3,7 @@ package slice
 import "errors"
 
 // AddLow[T any] 性能较差，可以执行benchmark进行对比
-func AddLow[T any](slice []T, val T, index int) ([]T, error) {
+func InsertLow[T any](slice []T, val T, index int) ([]T, error) {
 	if index < 0 || index >= len(slice) {
 		return nil, errors.New("index out of slice length")
 	}
@@ -15,7 +15,7 @@ func AddLow[T any](slice []T, val T, index int) ([]T, error) {
 	return result, nil
 }
 
-func Add[T any](src []T, element T, index int) ([]T, error) {
+func Insert[T any](src []T, element T, index int) ([]T, error) {
 	length := len(src)
 	if index < 0 || index >= length {
 		return nil, errors.New("index out of slice length")
