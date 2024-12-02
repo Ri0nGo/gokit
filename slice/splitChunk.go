@@ -4,7 +4,7 @@ import (
 	"rkit/utils"
 )
 
-func SplitChunk[T comparable](slice []T, splitSize int) ([][]T, error) {
+func SplitChunk[T any](slice []T, splitSize int) ([][]T, error) {
 	if splitSize <= 0 || splitSize > len(slice) {
 		return nil, ErrSplitSizeOutOfSlice
 	}
@@ -24,7 +24,7 @@ func SplitChunk[T comparable](slice []T, splitSize int) ([][]T, error) {
 	return result, nil
 }
 
-func SplitChunkV2[T comparable](slice []T, splitSize int) ([][]T, error) {
+func SplitChunkV2[T any](slice []T, splitSize int) ([][]T, error) {
 	if splitSize <= 0 || splitSize > len(slice) {
 		return nil, ErrSplitSizeOutOfSlice
 	}
@@ -43,7 +43,7 @@ func SplitChunkV2[T comparable](slice []T, splitSize int) ([][]T, error) {
 	return result, nil
 }
 
-func SplitChunkLow[T comparable](slice []T, splitSize int) ([][]T, error) {
+func SplitChunkLow[T any](slice []T, splitSize int) ([][]T, error) {
 	if splitSize <= 0 || splitSize > len(slice) {
 		return nil, ErrSplitSizeOutOfSlice
 	}
