@@ -1,4 +1,4 @@
-module gokit
+module github.com/Ri0nGo/gokit
 
 go 1.21
 
