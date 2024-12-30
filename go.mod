@@ -1,4 +1,4 @@
-module rkit
+module gokit
 
 go 1.21
 
