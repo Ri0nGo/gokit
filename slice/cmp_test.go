@@ -143,3 +143,49 @@ func TestAvg(t *testing.T) {
 		})
 	}
 }
+
+func TestContains(t *testing.T) {
+	testCase := []struct {
+		name   string
+		slice  []float64
+		input  float64
+		result bool
+	}{
+		{
+			name:   "empty slice",
+			slice:  []float64{},
+			result: false,
+		},
+		{
+			name:   "in slice mid",
+			slice:  []float64{1, 2, 100.1, 321.1},
+			input:  100.1,
+			result: true,
+		},
+		{
+			name:   "in slice fist",
+			slice:  []float64{1, 2, 100.1, 321.1},
+			input:  1,
+			result: true,
+		},
+		{
+			name:   "in slice last",
+			slice:  []float64{1, 2, 100.1, 321.1},
+			input:  321.1,
+			result: true,
+		},
+		{
+			name:   "not in slice",
+			slice:  []float64{1, 2, 100.1, 321.1},
+			input:  32111.1,
+			result: false,
+		},
+	}
+
+	for _, tc := range testCase {
+		t.Run(tc.name, func(t *testing.T) {
+			result := Contains(tc.slice, tc.input)
+			assert.Equal(t, tc.result, result)
+		})
+	}
+}

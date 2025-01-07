@@ -42,3 +42,13 @@ func Avg[T Ordered](slice []T) (float64, error) {
 	result = float64(sum) / float64(len(slice))
 	return result, nil
 }
+
+// Contains[T comparable] 判断元素是否在切片中存在
+func Contains[T comparable](silce []T, ele T) bool {
+	for _, v := range silce {
+		if v == ele {
+			return true
+		}
+	}
+	return false
+}

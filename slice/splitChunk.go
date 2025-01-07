@@ -1,7 +1,7 @@
 package slice
 
 import (
-	"rkit/utils"
+	"github.com/Ri0nGo/gokit/utils"
 )
 
 func SplitChunk[T any](slice []T, splitSize int) ([][]T, error) {
