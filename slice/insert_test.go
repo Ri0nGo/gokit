@@ -5,7 +5,7 @@ import (
 	"testing"
 )
 
-func TestAdd(t *testing.T) {
+func TestInsert(t *testing.T) {
 	testCase := []struct {
 		name      string
 		slice     []int
@@ -55,13 +55,3 @@ func BenchmarkInsert(b *testing.B) {
 		Insert[int](s, 100, 5)
 	}
 }
-
-// -- 测试结果 -- //
-/*
-go test -bench=. -benchmem
-
-BenchmarkAdd-16         32219262                40.33 ns/op           96 B/op          1 allocs/op
-BenchmarkAdd2-16        237656610                4.288 ns/op           0 B/op          0 allocs/op
-*/
-
-// 参考链接： https://juejin.cn/post/6970615934255906830
