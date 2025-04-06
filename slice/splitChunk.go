@@ -9,7 +9,7 @@ import (
 // 结果：[[1,2,3,4], [5,6,7,8], [9]]
 func SplitChunk[T any](slice []T, splitSize int) ([][]T, error) {
 	if splitSize <= 0 || splitSize > len(slice) {
-		return nil, ErrSplitSizeOutOfSlice
+		return nil, errSplitSizeOutOfSlice
 	}
 
 	// splitSize 此时不可能会是0
@@ -32,7 +32,7 @@ func SplitChunk[T any](slice []T, splitSize int) ([][]T, error) {
 // 结果：[[1,2,3,4], [5,6,7,8], [9]]
 func SplitChunkV2[T any](slice []T, splitSize int) ([][]T, error) {
 	if splitSize <= 0 || splitSize > len(slice) {
-		return nil, ErrSplitSizeOutOfSlice
+		return nil, errSplitSizeOutOfSlice
 	}
 
 	// splitSize 此时不可能会是0
@@ -51,7 +51,7 @@ func SplitChunkV2[T any](slice []T, splitSize int) ([][]T, error) {
 
 func SplitChunkLow[T any](slice []T, splitSize int) ([][]T, error) {
 	if splitSize <= 0 || splitSize > len(slice) {
-		return nil, ErrSplitSizeOutOfSlice
+		return nil, errSplitSizeOutOfSlice
 	}
 
 	result := make([][]T, 0)

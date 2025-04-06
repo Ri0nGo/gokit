@@ -53,7 +53,7 @@ func TestSplitChunk(t *testing.T) {
 			splitSize:    0,
 			wantLen:      0,
 			lastSliceLen: 0,
-			wantErr:      ErrSplitSizeOutOfSlice,
+			wantErr:      errSplitSizeOutOfSlice,
 		},
 		{
 			name:         "splitSize more than length",
@@ -61,7 +61,7 @@ func TestSplitChunk(t *testing.T) {
 			splitSize:    125,
 			wantLen:      0,
 			lastSliceLen: 0,
-			wantErr:      ErrSplitSizeOutOfSlice,
+			wantErr:      errSplitSizeOutOfSlice,
 		},
 		{
 			name:         "slice is zero, splitSize is zero",
@@ -69,7 +69,7 @@ func TestSplitChunk(t *testing.T) {
 			splitSize:    0,
 			wantLen:      0,
 			lastSliceLen: 0,
-			wantErr:      ErrSplitSizeOutOfSlice,
+			wantErr:      errSplitSizeOutOfSlice,
 		},
 		{
 			name:         "slice is zero, splitSize not is zero",
@@ -77,7 +77,7 @@ func TestSplitChunk(t *testing.T) {
 			splitSize:    1,
 			wantLen:      0,
 			lastSliceLen: 0,
-			wantErr:      ErrSplitSizeOutOfSlice,
+			wantErr:      errSplitSizeOutOfSlice,
 		},
 	}
 	for _, tc := range testCase {

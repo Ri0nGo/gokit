@@ -4,7 +4,7 @@ func Pop[T any](src []T, index int) ([]T, T, error) {
 	length := len(src)
 	if index < 0 || index >= length {
 		var zero T
-		return nil, zero, ErrIndexOutOfSlice
+		return nil, zero, errIndexOutOfSlice
 	}
 	popVal := src[index]
 	for i := index; i+1 < length; i++ {
