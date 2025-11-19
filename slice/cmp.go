@@ -3,7 +3,7 @@ package slice
 func Min[T Ordered](slice []T) (T, error) {
 	var zero T
 	if len(slice) == 0 {
-		return zero, ErrSliceEmpty
+		return zero, errSliceEmpty
 	}
 	var minVal = slice[0]
 	for _, val := range slice[1:] {
@@ -17,7 +17,7 @@ func Min[T Ordered](slice []T) (T, error) {
 func Max[T Ordered](slice []T) (T, error) {
 	var zero T
 	if len(slice) == 0 {
-		return zero, ErrSliceEmpty
+		return zero, errSliceEmpty
 	}
 	var maxVal = slice[0]
 	for _, val := range slice[1:] {
@@ -34,7 +34,7 @@ func Avg[T Ordered](slice []T) (float64, error) {
 		result float64
 	)
 	if len(slice) == 0 {
-		return result, ErrSliceEmpty
+		return result, errSliceEmpty
 	}
 	for _, val := range slice {
 		sum += val

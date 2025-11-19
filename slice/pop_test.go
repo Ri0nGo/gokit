@@ -41,7 +41,7 @@ func TestPop(t *testing.T) {
 			index:     -1,
 			wantVal:   0,
 			wantSlice: nil,
-			wantErr:   ErrIndexOutOfSlice,
+			wantErr:   errIndexOutOfSlice,
 		},
 		{
 			name:      "Index out of",
@@ -49,7 +49,7 @@ func TestPop(t *testing.T) {
 			index:     12,
 			wantVal:   0,
 			wantSlice: nil,
-			wantErr:   ErrIndexOutOfSlice,
+			wantErr:   errIndexOutOfSlice,
 		},
 	}
 	for _, tc := range testCase {

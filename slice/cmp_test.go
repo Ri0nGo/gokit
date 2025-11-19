@@ -15,7 +15,7 @@ func TestMin(t *testing.T) {
 		{
 			name:  "empty slice",
 			slice: []float64{},
-			err:   ErrSliceEmpty,
+			err:   errSliceEmpty,
 		},
 		{
 			name:  "min slice test 1",
@@ -63,7 +63,7 @@ func TestMax(t *testing.T) {
 		{
 			name:  "empty slice",
 			slice: []float64{},
-			err:   ErrSliceEmpty,
+			err:   errSliceEmpty,
 		},
 		{
 			name:  "max slice test 1",
@@ -111,7 +111,7 @@ func TestAvg(t *testing.T) {
 		{
 			name:  "empty slice",
 			slice: []float64{},
-			err:   ErrSliceEmpty,
+			err:   errSliceEmpty,
 		},
 		{
 			name:  "avg slice test 1",
