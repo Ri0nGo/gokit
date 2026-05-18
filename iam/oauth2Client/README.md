@@ -13,7 +13,7 @@ go get github.com/Ri0nGo/gokit
 ```go
 client, err := oauth2Client.New(oauth2Client.Config{
 	BaseURL:      "https://iam.example.com",
-	ClientID:     "your-appid",
+	ClientID:     "your-client-id",
 	ClientSecret: "your-secret",
 	RedirectURI:  "https://your-system.example.com/oauth/callback",
 	Scopes:       []string{"snsapi_userinfo"},
@@ -24,7 +24,7 @@ if err != nil {
 }
 ```
 
-`ClientID` 对应 IAM 认证应用的 `client_id`，请求 token 时会作为 `appid` 发送。`ClientSecret` 对应 IAM 认证应用的 `secret_key`，请求 token 时会作为 `secret` 发送。
+`ClientID` 对应 IAM 认证应用的 `client_id`。`ClientSecret` 对应 IAM 认证应用的 `secret_key`，请求 token 时会作为 `secret` 发送。
 
 客户端不支持从外部传入 `http.Client`。如未配置 `Timeout`，默认超时时间为 3 秒。
 
@@ -59,7 +59,7 @@ fmt.Println(token.Scope)
 内部请求：
 
 ```text
-GET /api/v1/oauth/token?appid=APPID&secret=SECRET&code=CODE&grant_type=authorization_code
+GET /api/v1/oauth/token?client_id=CLIENT_ID&secret=SECRET&code=CODE&grant_type=authorization_code
 ```
 
 ## 3. 校验 access_token
@@ -93,7 +93,7 @@ fmt.Println(refreshed.OpenID)
 内部请求：
 
 ```text
-GET /api/v1/oauth/refresh_token?appid=APPID&grant_type=refresh_token&refresh_token=REFRESH_TOKEN
+GET /api/v1/oauth/refresh_token?client_id=CLIENT_ID&grant_type=refresh_token&refresh_token=REFRESH_TOKEN
 ```
 
 ## 5. 获取用户信息

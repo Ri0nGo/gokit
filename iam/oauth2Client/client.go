@@ -127,7 +127,7 @@ func (c *Client) GetUserToken(ctx context.Context, code string) (*TokenResponse,
 		return nil, errors.New("code is required")
 	}
 	endpoint, err := c.endpoint(tokenPath, map[string]string{
-		"appid":      c.clientID,
+		"client_id":  c.clientID,
 		"secret":     c.clientSecret,
 		"code":       strings.TrimSpace(code),
 		"grant_type": "authorization_code",
@@ -154,7 +154,7 @@ func (c *Client) RefreshUserToken(ctx context.Context, refreshToken string) (*To
 		return nil, errors.New("refresh token is required")
 	}
 	endpoint, err := c.endpoint(refreshPath, map[string]string{
-		"appid":         c.clientID,
+		"client_id":     c.clientID,
 		"grant_type":    "refresh_token",
 		"refresh_token": strings.TrimSpace(refreshToken),
 	})

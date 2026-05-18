@@ -31,13 +31,13 @@ func TestClientGetUserTokenAndInfo(t *testing.T) {
 		switch r.URL.Path {
 		case tokenPath:
 			query := r.URL.Query()
-			if r.Method != http.MethodGet || query.Get("grant_type") != "authorization_code" || query.Get("appid") != "app" || query.Get("secret") != "secret" || query.Get("code") != "code-1" {
+			if r.Method != http.MethodGet || query.Get("grant_type") != "authorization_code" || query.Get("client_id") != "app" || query.Get("secret") != "secret" || query.Get("code") != "code-1" {
 				t.Fatalf("unexpected token request: method=%s query=%s", r.Method, r.URL.RawQuery)
 			}
 			_ = json.NewEncoder(w).Encode(apiResponse{Code: 0, Msg: "ok", Data: mustRawMessage(t, TokenResponse{AccessToken: "token-1", ExpiresIn: 3600, RefreshToken: "refresh-1", OpenID: "openid-1", Scope: "profile"})})
 		case refreshPath:
 			query := r.URL.Query()
-			if r.Method != http.MethodGet || query.Get("grant_type") != "refresh_token" || query.Get("appid") != "app" || query.Get("refresh_token") != "refresh-1" {
+			if r.Method != http.MethodGet || query.Get("grant_type") != "refresh_token" || query.Get("client_id") != "app" || query.Get("refresh_token") != "refresh-1" {
 				t.Fatalf("unexpected refresh request: method=%s query=%s", r.Method, r.URL.RawQuery)
 			}
 			_ = json.NewEncoder(w).Encode(apiResponse{Code: 0, Msg: "ok", Data: mustRawMessage(t, TokenResponse{AccessToken: "token-2", ExpiresIn: 3600, RefreshToken: "refresh-1", OpenID: "openid-1", Scope: "profile"})})
