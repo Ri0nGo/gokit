@@ -19,7 +19,7 @@ func TestClientAuthCodeURL(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	want := "https://iam.example.com/api/v1/oauth/authorize?client_id=app&redirect_uri=https%3A%2F%2Fapp.example.com%2Fcallback&response_type=code&scope=profile&state=state-1"
+	want := "https://iam.example.com/api/iam/oauth/authorize?client_id=app&redirect_uri=https%3A%2F%2Fapp.example.com%2Fcallback&response_type=code&scope=profile&state=state-1"
 	if authURL != want {
 		t.Fatalf("auth url = %q, want %q", authURL, want)
 	}

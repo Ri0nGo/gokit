@@ -16,11 +16,11 @@ import (
 const (
 	defaultTimeout = 3 * time.Second
 
-	authorizePath = "/api/v1/oauth/authorize"
-	tokenPath     = "/api/v1/oauth/token"
-	refreshPath   = "/api/v1/oauth/refresh_token"
-	authPath      = "/api/v1/oauth/auth"
-	userinfoPath  = "/api/v1/oauth/userinfo"
+	authorizePath = "/api/iam/oauth/authorize"
+	tokenPath     = "/api/iam/oauth/token"
+	refreshPath   = "/api/iam/oauth/refresh_token"
+	authPath      = "/api/iam/oauth/auth"
+	userinfoPath  = "/api/iam/oauth/userinfo"
 )
 
 // Config contains OAuth2 client settings for the IAM service.
